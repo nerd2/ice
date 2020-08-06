@@ -213,6 +213,7 @@ func (c *candidateBase) writeTo(raw []byte, dst Candidate) (int, error) {
 	if err != nil {
 		return n, fmt.Errorf("failed to send packet: %v", err)
 	}
+	time.Sleep(time.Microsecond*500) // Naive packet pacing
 	c.seen(true)
 	return n, nil
 }
