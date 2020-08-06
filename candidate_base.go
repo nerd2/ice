@@ -303,6 +303,7 @@ func (c *candidateBase) writeTo(raw []byte, dst Candidate) (int, error) {
 		c.agent().log.Warnf("%s: %v", errSendPacket, err)
 		return n, nil
 	}
+	time.Sleep(time.Microsecond*500) // Naive packet pacing
 	c.seen(true)
 	return n, nil
 }
