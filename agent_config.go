@@ -28,10 +28,10 @@ const (
 	defaultSrflxAcceptanceMinWait = 500 * time.Millisecond
 
 	// wait time before nominating a prflx candidate
-	defaultPrflxAcceptanceMinWait = 1000 * time.Millisecond
+	defaultPrflxAcceptanceMinWait = 0
 
 	// wait time before nominating a relay candidate
-	defaultRelayAcceptanceMinWait = 2000 * time.Millisecond
+	defaultRelayAcceptanceMinWait = 1000 * time.Millisecond
 
 	// max binding request before considering a pair failed
 	defaultMaxBindingRequests = 7
