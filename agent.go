@@ -954,7 +954,7 @@ func (a *Agent) sendBindingRequest(m *stun.Message, local, remote Candidate) {
 		isUseCandidate: m.Contains(stun.AttrUseCandidate),
 	})
 
-	a.sendSTUN(m, local, remote)
+	go a.sendSTUN(m, local, remote)
 }
 
 func (a *Agent) sendBindingSuccess(m *stun.Message, local, remote Candidate) {
@@ -976,7 +976,7 @@ func (a *Agent) sendBindingSuccess(m *stun.Message, local, remote Candidate) {
 	); err != nil {
 		a.log.Warnf("Failed to handle inbound ICE from: %s to: %s error: %s", local, remote, err)
 	} else {
-		a.sendSTUN(out, local, remote)
+		go a.sendSTUN(out, local, remote)
 	}
 }
 
